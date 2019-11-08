@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Layout</title>
+	<style type="text/css">
+		
+		.wrapper {
+			margin: 0 auto;
+			max-width: 900px;
+			padding: 2px;
+			text-align: center;
+		}
+		
+		#header  {
+			min-height: 50px;
+			background-color: red;
+			color:white;
+		}
+
+		#nav {
+			min-height: 50px;
+			background-color: blue;
+			color:white;
+		}
+		
+		#content__left {
+			width: 70%;
+			float: left;
+			background-color: green;
+			color:white;
+		}
+
+		#content__right {
+			width: 30%;
+			float: left;
+			min-height: 300px;
+			background-color: violet;
+			color:white;
+		}
+
+		#footer {
+			min-height: 50px;
+			background-color: black;
+			color:white;
+		}
+
+		.section, .article {
+			min-height: 150px;
+			border:1px solid black;
+		}
+
+		#content::after {
+			content: "";
+		    clear: both;
+		    display: table;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<header id="header" >
+			Header
+		</header>
+
+		<nav id="nav">
+			nav
+		</nav>
+
+		<div id="content">
+			<div id="content__left">
+				<div class="section" >
+					Section
+				</div>
+				<div class="article">
+					Article
+				</div>
+			</div>
+			<div id="content__right" >
+				Aside
+			</div>
+		</div>
+
+		<footer id="footer">
+			Footer
+		</footer>
+	</div>
+</body>
+</html>

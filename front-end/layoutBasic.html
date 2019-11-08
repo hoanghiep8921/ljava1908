@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Demo Layout</title>
+	<style>
+		.container{
+			max-width: 900px;
+			margin:0 auto;
+		}
+		.clear-fix::after{
+			clear:both;
+			display: table;
+			content: "";
+		}
+		.header-content-left{
+			width: 70%;
+			float:left;
+			position: relative;
+			height: 500px;
+		}
+		.header-content-left p{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			background-color: rgba(255,255,255,0.5);
+			margin: 0px;
+		}
+		.header-content-left img{
+			width: 100%;
+			height: 500px;
+		}
+		.content-top{
+			height: 250px;
+		}
+		.content-bottom{
+			height: 250px;
+		}
+		.header-content-right{
+			width:30%;
+			float:left;
+			height: 500px;
+		}
+		.header-content-right img{
+			height: 250px;
+			width: 100%;
+		}
+
+		.bottom-left{
+			width: 50%;
+			float: left;
+			height: 200px;
+			background-color: green;
+		}
+		.bottom-right{
+			width: 50%;
+			float:left;
+			height: 200px;
+			background-color: red;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class='header clear-fix'>
+			<div class='header-content-left'>
+				<img src="https://9mobi.vn/cf/images/2015/03/nkk/anh-dep-1.jpg">
+				<p>Chào ngày mới Hhihi</p>
+			</div>
+			<div class="header-content-right">
+				<div class='content-top'>
+					<img src="https://media.laodong.vn/storage/newsportal/2017/12/5/579811/May-Bay-Nga.Jpg2.jpg?w=888&h=592&crop=auto&scale=both">
+				</div>
+				<div class="content-bottom">
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkpBJLGZf7oKAORcPUztIAw1TXQ0HWCp3KiNkeRYZnsD0XQVAc">
+				</div>
+			</div>
+
+		</div>
+		<div class="bottom clear-fix">
+			<div class='bottom-left'></div>
+			<div class="bottom-right"></div>
+		</div>
+	</div>
+</body>
+</html>

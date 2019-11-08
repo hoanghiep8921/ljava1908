@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo Layout</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+            text-align: center;
+        }
+        li{
+            background-color: violet;
+            float: left;
+            width: 20%;
+        }
+        a{
+            display: inline-block;
+            padding: 10px;
+            color: chartreuse;
+        }
+        a:hover{
+            background-color: red;
+        }
+        ul li ul{
+            display: none;
+            text-align: center;
+        }
+        ul li:hover ul{
+            display: block;
+        }
+        ul li ul li{
+            float: none;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <a>123</a>
+            <ul>
+                <li><a>abc</a></li>
+                <li><a>abc</a></li>
+                <li><a>abc</a></li>
+            </ul>
+        </li>
+        <li><a>123</a></li>
+        <li><a>123</a></li>
+        <li><a>123</a></li>
+        <li><a>123</a></li>
+    </ul>
+</body>
+</html>
