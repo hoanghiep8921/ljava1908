@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>ANMM_196159</title>
+	<link rel="stylesheet" type="text/css" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			background-color: #EFEFEF;
+		}
+
+
+		#header{
+			background-color: #003A6A;
+			color: white;
+			height: 210px;
+			padding-top: 30px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+		#top{
+			height: 150px;
+		}
+		#top-left{
+			float:left;
+			width: 30%;
+			padding-top: 30px;
+		}
+
+		#top-center{
+			float:left;
+			width: 40%;
+		}
+		#logo{
+			float: left;
+			width: 20%;
+		}
+		#name{
+			float: left;
+			width: 80%;
+			padding-top: 10px;
+		}
+
+		#top-right{
+			padding-top: 50px;
+			float:left;
+			width: 30%;
+		}
+
+		#top-right li{
+			
+			border: none;
+			
+			font-size:13px;
+			display: inline-block;
+
+		}
+		#top-right a{
+			display: inline-block;
+			color: #5BD7EC;
+			font-size:13px;
+			margin: 5px;
+    		padding: 0 5px;
+			border-right: 1px solid #00569D;
+		}
+		.clearfix::after{
+			display: block;
+			content:" ";
+			clear: both;
+		}
+		#menu{
+			background-color: #004884;
+
+			position: relative;
+		}
+		ul {
+			list-style-type: none;
+			font-size: 0;
+		}
+		#menu li{
+			display: inline-block;
+			border: 1px solid #00569D;
+		}
+
+		#menu a{
+			display: inline-block;
+			padding: 20px 10px;
+			color: white;
+			font-size:15px;
+		}
+
+		a{
+			text-decoration: none;
+		}
+		#list-icon{
+			position: absolute;
+			right: 0;
+		    top: 50%;
+		    transform: translate(0, -50%);
+		}
+		#list-icon i{
+			padding: 20px 20px;
+		}
+
+		#container{
+			padding-top: 30px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+		#right-content{
+			float:left;
+			width: 65%;
+		}
+
+		#left-content{
+			float:left;
+			width: 35%;
+			
+		}
+		.image{
+			float:left;
+			width: 30%;
+		}
+		.text{
+			float: left;
+			width: 70%;
+			height: 100px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.image img{
+			width: 100px;
+			height: 100px;
+		}
+		.title{
+			background-color:#004074;
+			color: white;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		.item{
+			padding: 0 20px;
+		}
+		#activity{
+			margin-bottom: 30px;
+			background-color: white;
+		}
+		#notifi{
+			background-color: white;
+		}
+		#footer{
+			margin-top: 50px;
+		}
+		.bold{
+			font-weight: bold;
+			color: #4782B2;
+		}
+		.hover:hover{
+			color: yellow !important;
+		}
+		#menu li{
+			position: relative;
+		}
+		.sub-menu{
+			position: absolute;
+			top: 58px;
+			left: 0;
+			display: none;
+			width: 200px;
+		}
+		.sub-menu li{
+			display: block !important;
+			background-color: #004884;
+		}
+		#menu li:hover .sub-menu{
+			display: block;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id='top' class="clearfix">
+			<div id='top-left'>
+				<p class="hover"><i class="fa fa-phone"></i> <span> </span> &nbsp;&nbsp;043.869.14.61</p>
+				<br>
+				<p class="hover"><i class="fa fa-inbox"></i> <span> </span>&nbsp;&nbsp;bm.cnpm@nuce.edu.com</p>
+			</div>
+				<div id='top-center' class="clearfix">
+					<div id="logo">
+						<img src="./img/logo.png">
+					</div>
+					<div id="name" style="text-align: center;">
+						<h2>ANMM_196159</h2>
+						<h3>Software Engineerr Department</h3>
+						<p class="hover">Khoa CNTT - DHXD (Nuce)</p>
+					</div>
+				</div>
+				<div id='top-right' >
+					<div style="float:right;position: relative;">
+						<ul style="display: flex;flex-direction: row-reverse;">
+							<li class="hover"><a href="" class="hover">Giới thiệu</a></li>
+							<li class="hover"><a href=""  class="hover">Đào tạo</a></li>
+							<li class="hover"><a href=""  class="hover">Nghiên cứu</a></li>
+						</ul>
+						<input type="text" name="" id="myInput" placeholder="Tim kiem ..." style="padding: 10px;border: 1px solid #00569D;background-color: #004074;width: 200px;text-align: right;">
+						<i class="fa fa-search" id="icon-search" style="position: absolute;left: 5px;top: 35px"></i>
+					</div>
+					
+				</div>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="hover"><a href=""  class="hover" style="padding: 20px 30px;"><i class="fa fa-home"></i></a></li>
+				<li class="hover"><a href=""  class="hover">Tài nguyên  &nbsp;<i class="fa fa-angle-down"></i></a>
+				<ul class="sub-menu">
+						<li class="hover"><a href="" class="hover">Biểu mẫu</a></li>
+						<li class="hover"><a href="" class="hover">Ebook</a></li>
+					</ul></li>
+				<li class="hover">
+					<a href="" class="hover">Tin tức - Sư kiện</a>
+				</li>
+				<li class="hover"><a href="" class="hover">Giảng viên  &nbsp;<i class="fa fa-angle-down"></i></a>
+					<ul class="sub-menu">
+						<li class="hover"><a href="" class="hover">Nghiên cứu khoa học</a></li>
+						<li class="hover"><a href="" class="hover">Sinh hoạt chuyên đề</a></li>
+					</ul>
+				</li>
+				<li class="hover"><a href="" class="hover">Sinh viên  &nbsp;<i class="fa fa-angle-down"></i></a>
+					<ul class="sub-menu">
+						<li class="hover"><a href="" class="hover">Đồ án môn học</a></li>
+						<li class="hover"><a href="" class="hover">Thực tập và đồ án tốt nghiệp</a></li>
+                                                <li class="hover"><a href="" class="hover">Olympic tin học</a></li>
+                                                <li class="hover"><a href="" class="hover">Nghiên cứu khoa học</a></li>
+                                                <li class="hover"><a href="" class="hover">Hoạt động ngoại khóa</a></li>
+					</ul>
+				</li>
+				<li class="hover"><a href="" class="hover">Tin tuyển dụng </a></li>
+			</ul>
+
+				<div id="list-icon">
+					<i class="fa fa-facebook-square hover"></i>
+					<i class="fa fa-google-plus hover"></i>
+					<i class="fa fa-wifi hover"></i>
+					<i class="fa fa-phone hover"></i>
+					<i class="fa fa-inbox hover"></i>
+					<i class="fa fa-trash hover"></i>
+				</div>
+
+			
+		</div>
+	</div>
+	<div id="container" class="clearfix">
+		<div id="right-content">
+			<img src='./img/slide.png' height="450px" width="95%">
+		</div>
+		<div id="left-content">
+			<div id="activity">
+				<h2 class="title">Hoạt động ngoại khóa</h2>
+				<div class="item clearfix">
+					<div class="image"><img src='./img/no_img.png'></div>
+					<div class="text"><p class="bold hover">Triển khai hoạt động khoa học công nghệ sinh viên năm học 2016-2017</p></div>
+				</div>
+				<div class="item clearfix">
+					<div class="image"><img src='./img/no_img.png'></div>
+					<div class="text"><p class="bold hover">Thông tin tuyển sinh ngành Kỹ thuật công trình xây dựng</p></div>
+				</div> 
+				<div class="item clearfix">
+					<div class="image"><img src='./img/no_img.png'></div>
+					<div class="text"><p class="bold hover">Chọn học ngành công nghệ thông tin - Đại học xây dựng</p></div>
+				</div>
+			</div>
+			<div id="notifi">
+				<h2 class="title">Thông báo cho sinh viên</h2>
+				<div class="item clearfix">
+					<div class="image"><img src='./img/no_img.png'></div>
+					<div class="text"><p class="bold hover">Thông báo về việc làm thể sinh viên và thẻ liên kết ngân hàng</p></div>
+				</div>
+				<div class="item clearfix">
+					<div class="image"><img src='./img/no_img.png'></div>
+					<div class="text"><p class="bold hover">Thông báo về việc thu thẻ bảo hiểm y tế 2017</p></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<img src="./img/footer.png" width="100%" >
+	</div>
+	<script>
+		var input = document.getElementById("myInput");
+		input.addEventListener("keyup", function(event) {
+		  if (event.keyCode === 13) {
+		   event.preventDefault();
+		   alert(document.getElementById("myInput").value)
+		  }
+		});
+		var icon = document.getElementById("icon-search");
+		icon.addEventListener("click", function(event) {
+		   alert(document.getElementById("myInput").value)
+		  
+		});
+</script>
+</body>
+</html>
