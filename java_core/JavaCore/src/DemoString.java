@@ -27,8 +27,6 @@ public class DemoString {
 //        System.out.println(a.length());
 //        System.out.println(a.charAt(0));
 
-
-
     }
 
     public static char findMaxChar(String str){
