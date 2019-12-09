@@ -1,12 +1,30 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MyBook {
     private ArrayList<Book> bookArrayList = new ArrayList<Book>();
+
     private String name;
 
     public MyBook(String name) {
+        //c1
+        Collections.sort(bookArrayList);
+        //c2
+        bookArrayList.sort(new Comparator<Book>() {
+            @Override
+            public int compare(Book o1, Book o2) {
+                if(o1.getPrice() > o2.getPrice()){
+                    return 1;
+                }
+                if(o1.getPrice() < o2.getPrice()){
+                    return -1;
+                }
+                return 0;
+            }
+        });
         this.name = name;
     }
 

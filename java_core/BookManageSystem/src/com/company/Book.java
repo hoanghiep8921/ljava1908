@@ -3,7 +3,7 @@ package com.company;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Book {
+public class Book implements Comparable<Book> {
     private int id;
     private String name;
     private int year;
@@ -108,5 +108,16 @@ public class Book {
                 ", category=" + category +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Book o) {
+        if(this.getPrice() > o.getPrice()){
+            return 1;
+        }
+        if(this.getPrice() < o.getPrice()){
+            return -1;
+        }
+        return 0;
     }
 }
