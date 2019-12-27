@@ -65,7 +65,7 @@ public class Main {
         myBook.displayAllBooks();
     }
 
-    // Them sinh vien
+    // Them quyển sách
     public static void addBook() {
         System.out.println("Nhap so luong sach muon them");
         int num = scanner.nextInt();

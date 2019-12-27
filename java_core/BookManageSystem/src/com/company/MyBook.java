@@ -10,21 +10,6 @@ public class MyBook {
     private String name;
 
     public MyBook(String name) {
-        //c1
-        Collections.sort(bookArrayList);
-        //c2
-        bookArrayList.sort(new Comparator<Book>() {
-            @Override
-            public int compare(Book o1, Book o2) {
-                if(o1.getPrice() > o2.getPrice()){
-                    return 1;
-                }
-                if(o1.getPrice() < o2.getPrice()){
-                    return -1;
-                }
-                return 0;
-            }
-        });
         this.name = name;
     }
 
