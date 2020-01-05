@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/basic.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h1 th:text="${hello}"></h1>
+    <h2 th:text="${user}"></h2>
+    <h1 th:text="${test}"></h1>
+    <h1 th:text="${result}"></h1>
+    <img style="height: 100px;width: 100px" th:src="@{/img/download.jpg}"/>
+
+    <script th:src="@{/js/basic.js}"></script>
+</body>
+</html>
