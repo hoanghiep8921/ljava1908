@@ -92,9 +92,9 @@
                 <div class="container-sort">
                     <span>Sắp xếp theo</span>
                     <div class="sort">
-                        <select>
+                        <select id="filter">
                             <option value="0">Mặc định</option>
-                            <option value="1">Option 1</option>
+                            <option value="1">Giá tiền nhỏ hơn 5000</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                             <option value="4">Option 4</option>
@@ -122,14 +122,13 @@
                         </div>
 
                 </div> <!--end content-main-->
-                <div class="pagination">
-                    <a class="active" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span style="color: white;">...</span>
-                    <a href="#">16</a>
-                    <a href="#">Next</a>
+                <!--                       th:class="${${(param.page != null) and (param.page[0] == i)} ? 'active' : 'inactive' }"-->
+
+                <div class="pagination" >
+                    <a th:each="i: ${#numbers.sequence(0, totalPage)}"
+                       th:class="${currentPage == i} ? 'active' : 'inactive' "
+                       th:href="@{'/home?page=' + ${i}}"  th:text="${i+1}">
+                    </a>
                 </div> <!--end pagination-->
             </div>
             <div class="top-game">
@@ -287,5 +286,24 @@
         </div>
         <span class="copyright">© Copyright 2019 DTS Group</span>
     </div>
+
+<script>
+    var selectFilter = document.getElementById('filter');
+    selectFilter.addEventListener('change',function(event){
+        var url = new URL(window.location.href);
+        const currentPage = url.searchParams.get("page");
+        console.log(selectFilter);
+        var value = selectFilter.options[selectFilter.selectedIndex].value;
+        console.log(value);
+        console.log(currentPage);
+
+        if(value > 0){
+
+            window.location.href = 'http://localhost:8080/home?page='+ (currentPage == null ? 0 : currentPage)
+                +'&filter=' + value;
+
+        }
+    })
+</script>
 </body>
 </span>
