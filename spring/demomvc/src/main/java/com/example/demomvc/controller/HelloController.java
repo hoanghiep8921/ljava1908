@@ -1,12 +1,17 @@
 package com.example.demomvc.controller;
 
+import com.example.demomvc.model.Game;
 import com.example.demomvc.model.GoodBye;
 import com.example.demomvc.model.Hello;
+import com.example.demomvc.model.MenuItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -40,7 +45,30 @@ public class HelloController {
     }
 
     @RequestMapping("/home")
-    public String home(){
+    public String home(Model model){
+        //mock data
+        List<Game> lstGame = new ArrayList<>();
+        lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 1"));
+        lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 2"));
+        lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 3"));
+        lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 4"));
+        lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 5"));
+
+        List<MenuItem> lstMenu = new ArrayList<>();
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+        lstMenu.add(new MenuItem("Steam","https://www.freeiconspng.com/uploads/flat-blue-home-icon-4.png"));
+
+
+
+        //transfer to view
+        model.addAttribute("listGame",lstGame);
+        model.addAttribute("listMenu",lstMenu);
+
         return "home";
     }
 
