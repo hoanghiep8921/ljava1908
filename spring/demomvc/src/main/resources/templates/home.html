@@ -81,38 +81,20 @@
     <div class="container">
             <div class="menu">
                 <span style="padding: 8px 16px; color: #35BEFC;">GAME FLATFORM</span>
-                <div class="steam flex menu-active">
-                    <img width="20px" height="20px" th:src="@{/img/icon/steam.png}">
-                    <span>Steam</span>
-                </div>
-                <div class="origin flex">
-                    <img width="20px" height="20px" th:src="@{/img/icon/Origin.png}">
-                    <span>Origin</span>
-                </div>
-                <div class="uplay flex">
-                    <img width="20px" height="20px" th:src="@{/img/icon/Uplay-icon.png}">
-                    <span>Uplay</span>
-                </div>
-                <div class="ubiisoft flex">
-                    <img width="25px" height="20px" th:src="@{/img/icon/Ubiisoft_logo.png}">
-                    <span>Ubiisoft</span>
-                </div>
-                <div class="gog flex">
-                    <img width="20px" height="20px"th:src="@{/img/icon/steam.png}">
-                    <span>GOG</span>
-                </div>
-                <div class="blizzard flex">
-                    <img width="50px" height="30px" th:src="@{/img/icon/blizzard.png}">
-                    <span>Blizzard</span>
+                <div th:each="item,iter : ${listMenu}"
+                     th:class="${iter.index == 0 ?
+                     'steam flex menu-active' : 'steam flex'}">
+                    <img width="20px" height="20px" th:src="${item.getImage()}">
+                    <span th:text="${item.name}"></span>
                 </div>
             </div>
             <div class="content">
                 <div class="container-sort">
                     <span>Sắp xếp theo</span>
                     <div class="sort">
-                        <select>
+                        <select id="filter">
                             <option value="0">Mặc định</option>
-                            <option value="1">Option 1</option>
+                            <option value="1">Giá tiền nhỏ hơn 5000</option>
                             <option value="2">Option 2</option>
                             <option value="3">Option 3</option>
                             <option value="4">Option 4</option>
@@ -121,207 +103,32 @@
                 </div>
                 <!--end container-sort-->
                 <div class="content-main">
-                        <div class="game-item" style="background-image: url('img/gamebg/bg11.jpg');">
-                                <span class="discount">-70%</span>
+                        <div class="game-item" th:each="item : ${listGame}"
+                             th:style="'background-image:url(' + ${item.getImage()} + ');'">
+                                <span class="discount" th:text="'-' + ${item.getPromotion()} + '%'">-70%</span>
                                 <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Fortnite Battle Royale</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
+                                    <div class="info-game">
+                                        <span style="color: white; font-size: 14px;" th:text="${item.getName()}">Fortnite Battle Royale</span>
+                                        <span style="color: #EB7F02; font-size: 8px;"><del th:text="${item.getPriceOld()}">1.700.000 VND</del></span>
+                                        <span style="color: #EB7F02; font-size: 10px;"  th:text="${#numbers.formatDecimal(item.getPriceNew(), 0, 'COMMA', 4, 'POINT')} + ' VNĐ'">700.000 VND</span>
+                                    </div>
+                                    <div class="like-buy-game">
 
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
+                                        <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
 
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
+                                        <a href="">Thêm vào giỏ</a>
+                                    </div>
                                 </div>
                         </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg4.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Battlegrounds</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
 
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg10.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">The Elsweyr</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg15.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">God Of War</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg6.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Pirate's Treasure</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg7.png');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">God Of War</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg8.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Tomb Raider</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">God Of War</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg4.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Battlegrounds</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg9.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Assassin's Creed IV</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg2.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">Ring Of Elysium</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
-                        <div class="game-item" style="background-image: url('img/gamebg/bg14.jpg');">
-                                <span class="discount">-70%</span>
-                                <div class="overlay">
-                                        <div class="info-game">
-                                            <span style="color: white; font-size: 14px;">God Of War</span>
-                                            <span style="color: #EB7F02; font-size: 8px;"><del>1.700.000 VND</del></span>
-                                            <span style="color: #EB7F02; font-size: 10px;">700.000 VND</span>
-                                        </div>
-                                        <div class="like-buy-game">
-
-                                            <i style="color: red; margin-right: 10px; font-size: 12px;" class="fa fa-heart" aria-hidden="true"></i>
-
-                                            <a href="">Thêm vào giỏ</a>
-                                        </div>
-                                </div>
-                        </div>
                 </div> <!--end content-main-->
-                <div class="pagination">
-                    <a class="active" href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <span style="color: white;">...</span>
-                    <a href="#">16</a>
-                    <a href="#">Next</a>
+                <!--                       th:class="${${(param.page != null) and (param.page[0] == i)} ? 'active' : 'inactive' }"-->
+
+                <div class="pagination" >
+                    <a th:each="i: ${#numbers.sequence(0, totalPage)}"
+                       th:class="${currentPage == i} ? 'active' : 'inactive' "
+                       th:href="@{'/home?page=' + ${i}}"  th:text="${i+1}">
+                    </a>
                 </div> <!--end pagination-->
             </div>
             <div class="top-game">
@@ -479,5 +286,24 @@
         </div>
         <span class="copyright">© Copyright 2019 DTS Group</span>
     </div>
+
+<script>
+    var selectFilter = document.getElementById('filter');
+    selectFilter.addEventListener('change',function(event){
+        var url = new URL(window.location.href);
+        const currentPage = url.searchParams.get("page");
+        console.log(selectFilter);
+        var value = selectFilter.options[selectFilter.selectedIndex].value;
+        console.log(value);
+        console.log(currentPage);
+
+        if(value > 0){
+
+            window.location.href = 'http://localhost:8080/home?page='+ (currentPage == null ? 0 : currentPage)
+                +'&filter=' + value;
+
+        }
+    })
+</script>
 </body>
 </span>
