@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Test</title>
     <meta charset="utf-8">
@@ -80,8 +80,13 @@
 <body>
 
 <div class="container mt-5">
+    <div id="addProduct" data-toggle="modal"
+         data-target="#modalAddProduct"
+         class="btn btn-success">Add Product</div>
+    <h1 th:text="${message != null || !message.isEmpty() ? message : '' }"></h1>
     <div class="row">
-        <div class="col-md-4 mb-3 mb-md-0">
+        <div th:each="product : ${listProduct}"
+             class="col-md-4 mb-3 mb-md-0">
             <div class="card h-100">
                 <div class="labels">
                     <div class="label-new bg-success text-white text-center py-1">New</div>
@@ -93,20 +98,22 @@
                        title="Add To Cart">
                         <i class="fa fa-opencart" aria-hidden="true"></i>
                     </a>
-                    <h3 class="text-success">$199.99</h3>
+                    <h3 class="text-success" th:text="${'$' + product.getPrice()}"></h3>
                     <div class="rating text-warning">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                        <i th:each="i : ${#numbers.sequence(1,5)}"
+                           th:class="${product.getStar() > i ? 'fa fa-star' : 'fa fa-star-o'}"
+                           aria-hidden="true"></i>
                     </div>
-                    <h4>Product Name</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                        est laborum.</p>
+                    <h4 th:text="${product.getName()}"></h4>
+                    <p th:text="${product.getDescription()}"></p>
                     <a href="#" class="btn btn-success btn-block mt-auto">
                         <i class="fa fa-eye" aria-hidden="true"></i>
-                        Product Detail
+                        Sửa
+                    </a>
+
+                    <a href="#" class="btn btn-danger btn-block mt-auto">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        Xóa
                     </a>
                 </div>
             </div>
@@ -115,8 +122,67 @@
     </div>
 
 </div>
+<!-- Modal -->
+<div class="modal fade" id="modalAddProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="productName">Name :</label>
+                    <input type="text" class="form-control" id="productName" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description :</label>
+                    <input type="text" class="form-control" id="productDescription" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="productPrice">Price :</label>
+                    <input type="number" class="form-control" id="productPrice" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="productStar">Star :</label>
+                    <input type="number" class="form-control" id="productStar" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary"
+                        onclick="addProduct()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     // $('[data-toggle="tooltip"]').tooltip();
+
+    function addProduct(){
+        var product = {
+            name:$("#productName").val(),
+            description:$("#productDescription").val(),
+            price: $("#productPrice").val(),
+            star: $("#productStar").val()
+        };
+        console.log(product);
+        $.ajax({
+            type:"POST",
+            url:"http://localhost:8080/create-product",
+            data:JSON.stringify(product),
+            contentType: 'application/json',
+            success: function(response, data){
+                // server trả về HTTP status code là 200 => Thành công
+                //hàm đc thực thi khi request thành công không có lỗi
+                //reload lại trang
+                window.location.reload();
+            },
+        });
+        $('#modalAddProduct').modal('hide');
+    }
 </script>
 </body>
 </html>
