@@ -5,12 +5,22 @@ public class Product {
     private String description;
     private int price;
     private int star;
+    private int id;
 
-    public Product(String name, String description, int price, int star) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Product(String name, String description, int price, int star, int id) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.star = star;
+        this.id = id;
     }
 
     public String getName() {
