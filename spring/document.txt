@@ -1,0 +1,7 @@
+1,one to one 
+https://hellokoding.com/jpa-one-to-one-foreignkey-relationship-example-with-spring-boot-maven-and-mysql/
+2,one to many
+https://hellokoding.com/jpa-one-to-many-relationship-mapping-example-with-spring-boot-maven-and-mysql/
+3,custom object mapping jpa
+https://stackoverflow.com/questions/36328063/how-to-return-a-custom-object-from-a-spring-data-jpa-group-by-query
+https://stackoverflow.com/questions/53114300/need-to-return-list-of-custom-object-using-jpa-query
