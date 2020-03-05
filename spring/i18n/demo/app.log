@@ -1,0 +1,9 @@
+2020-02-03 15:02:25,523 INFO com.example.demo.DemoApplication [main] Starting DemoApplication on hiepdh with PID 13644 (C:\Users\hiepdh\Desktop\ljava\ljava1909\spring\i18n\demo\target\classes started by hiepdh in C:\Users\hiepdh\Desktop\ljava\ljava1909\spring\i18n\demo)
+2020-02-03 15:02:25,525 DEBUG com.example.demo.DemoApplication [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-02-03 15:02:25,526 INFO com.example.demo.DemoApplication [main] No active profile set, falling back to default profiles: default
+2020-02-03 15:02:26,373 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-02-03 15:02:26,373 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-02-03 15:02:26,461 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-02-03 15:02:26,942 INFO com.example.demo.DemoApplication [main] Started DemoApplication in 1.821 seconds (JVM running for 2.72)
+2020-02-03 15:02:39,408 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-03 15:02:39,426 DEBUG com.example.demo.controller.Controller [http-nio-8080-exec-1] Hello from Logback 123

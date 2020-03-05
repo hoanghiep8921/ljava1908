@@ -82,7 +82,7 @@
 <div class="container mt-5">
     <div id="addProduct" data-toggle="modal"
          data-target="#modalAddProduct"
-         class="btn btn-success">Add Product</div>
+         class="btn btn-success">Add New Product</div>
     <h1 th:text="${message != null || !message.isEmpty() ? message : '' }"></h1>
     <div class="row">
         <div th:each="product : ${listProduct}"
@@ -106,13 +106,14 @@
                     </div>
                     <h4 th:text="${product.getName()}"></h4>
                     <p th:text="${product.getDescription()}"></p>
-                    <a href="#" class="btn btn-success btn-block mt-auto">
+                    <a th:href="@{${'/edit/' + product.getId() + '/detail'}}"
+                       class="btn btn-success btn-block mt-auto">
                         <i class="fa fa-eye" aria-hidden="true"></i>
-                        Sửa
+                        Chi tiết
                     </a>
 
-                    <a href="#" class="btn btn-danger btn-block mt-auto">
-                        <i class="fa fa-eye" aria-hidden="true"></i>
+                    <a th:href="@{${'/delete/' + product.getId()}}"
+                       class="btn btn-danger btn-block mt-auto"><i class="fa fa-eye" aria-hidden="true"></i>
                         Xóa
                     </a>
                 </div>
