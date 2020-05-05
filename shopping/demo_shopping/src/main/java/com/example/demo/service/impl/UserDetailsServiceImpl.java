@@ -1,10 +1,9 @@
-package com.vnp.template.service.impl;
+package com.example.demo.service.impl;
 
+
+import com.example.demo.dto.UserDTO;
+import com.example.demo.util.Constant;
 import com.google.gson.Gson;
-import com.vnp.template.dto.UserDto;
-import com.vnp.template.model.User;
-import com.vnp.template.service.RoleService;
-import com.vnp.template.util.Constant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         LOGGER.debug("Find User by Name: {}", userName);
-        UserDto user = userService.findUserByEmail(userName);
+        UserDTO user = userService.findUserByEmail(userName);
         if (user == null) {
             LOGGER.debug("{} not found!", userName);
             throw new UsernameNotFoundException("Tài khoản :" + userName + " không tồn tại !");
@@ -40,12 +39,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Integer roleID = user.getRoleId();
         List<GrantedAuthority> grantList = new ArrayList<>();
         if (roleID != null) {
-//            roleService.findByID(roleID).getFunctions().stream().map((function) -> new SimpleGrantedAuthority(function.getFunctionCode())).forEachOrdered((authority) -> {
-//                grantList.add(authority);
-//            });
+            roleService.findByID(roleID).getFunctions().stream().map((function) -> new SimpleGrantedAuthority(function.getFunctionCode())).forEachOrdered((authority) -> {
+                grantList.add(authority);
+            });
             if(roleID.equals(Constant.ROLE_SUPER_ID)){
-                //grantList.add(new SimpleGrantedAuthority(roleService.findByID(roleID).getRoleName()));
-                grantList.add(new SimpleGrantedAuthority("ADMIN"));
+                grantList.add(new SimpleGrantedAuthority(roleService.findByID(roleID).getRoleName()));
             }
         }
         LOGGER.debug("{}: grantList: {}", userName, gson.toJson(grantList));

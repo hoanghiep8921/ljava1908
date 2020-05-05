@@ -2,11 +2,11 @@ package com.vnp.template.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
+@Setter
+@Getter
 @Data
 @Accessors(chain = true)
 @NoArgsConstructor
