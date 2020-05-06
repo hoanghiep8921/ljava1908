@@ -1,5 +1,6 @@
 package com.example.admin_mvc.controller;
 
+import com.example.admin_mvc.model.BaseResponse;
 import com.example.admin_mvc.model.Product;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -24,11 +25,38 @@ public class HomeController {
         lstProduct.add(new Product("Product 3","Description product 3",100,3,3));
     }
 
+    @RequestMapping(value = "/test-api",method = RequestMethod.GET)
+    @ResponseBody //không trả về trang web
+    public String testAPI(){
+        return "Hello API";
+    }
+
+    //lấy tất cả danh sách sản phẩm
+    @RequestMapping(value = "/api/products",method = RequestMethod.GET)
+    @ResponseBody
+    public BaseResponse getAllProduct(@RequestParam("fail") int i){
+        BaseResponse response = new BaseResponse();
+        if(i == 1){
+            response.setData(null);
+            response.setMessage("System errors");
+            response.setCode("99");
+        }else{
+            response.setCode("00");
+            response.setMessage("Get all products successfully");
+            response.setData(lstProduct);
+        }
+        return response;
+    }
 
     @RequestMapping("/index")
-    public String index(Model model){
+    public String index(Model model,
+                        @RequestParam(value = "isSuccess",required = false) Boolean isSuccess){
+        isSuccess = false;
         model.addAttribute("listProduct",lstProduct);
-        model.addAttribute("message","");
+        if(isSuccess != null){
+            model.addAttribute("message",isSuccess ? "Thành công" : "Thất bại");
+        }
+        model.addAttribute("message",isSuccess ? "Thành công" : "Thất bại");
         return "index";
     }
 
