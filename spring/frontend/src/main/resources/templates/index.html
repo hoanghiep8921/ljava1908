@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang tru</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<h1>Trang tru 123</h1>
+
+<input type="text" id="idProduct" readonly>
+<input type="text" id="nameProduct" placeholder="Ten san pham">
+<input type="text" id="priceProduct" placeholder="Gia san pham">
+<button onclick="addProduct()">Them san pham</button>
+<button onclick="editProduct()">Sua san pham</button>
+<div id="list-product"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+loadData();
+function loadData(){
+    $('#list-product').empty();
+    $.ajax({
+        url:"http://localhost:8082/v1/api/products",
+        success: function(result){
+            console.log("data response",result);
+            if(result.code == '00'){
+                renderData(result.data);
+            }else{
+                alert(result.message);
+            }
+        }
+    });
+}
+
+
+    function renderData(data){
+        data.map(item => {
+            $('#list-product').append(`<div class="card">
+              <img src="https://static.bongda24h.vn/medias/standard/2020/5/10/tottenham-de-mat-anh-em-nha-booth.jpg"
+              alt="Denim Jeans" style="width:100%">
+              <h1>${item.name}</h1>
+              <p class="price">${item.price}</p>
+              <p>Some text about the jeans..</p>
+              <p><button onclick="setProductId(${item.id})">Edit</button></p>
+              <p><button>Add to Cart</button></p>
+            </div>`);
+        });
+    }
+    function setProductId(id){
+        $('#idProduct').val(id);
+    }
+
+    function addProduct(){
+        let dataJson = {
+            name: $('#nameProduct').val(),
+            price:$('#priceProduct').val(),
+        };
+        $.ajax({
+            url:"http://localhost:8082/v1/api/product",
+            type:"POST",
+            data: JSON.stringify(dataJson),
+            contentType: "application/json",
+            success: function (result){
+                console.log("response",result);
+                loadData();
+            }
+        })
+    }
+
+    function editProduct(){
+        let dataJson = {
+            name: $('#nameProduct').val(),
+            price:$('#priceProduct').val(),
+        };
+        $.ajax({
+            url:"http://localhost:8082/v1/api/product/" + $('#idProduct').val(),
+            type:"PUT",
+            data: JSON.stringify(dataJson),
+            contentType: "application/json",
+            success: function (result){
+                console.log("response",result);
+                loadData();
+            }
+        })
+    }
+</script>
+</body>
+</html>

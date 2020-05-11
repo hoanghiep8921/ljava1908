@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/v1/api")
 public class ProductAPIController {
