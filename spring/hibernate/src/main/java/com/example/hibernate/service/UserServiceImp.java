@@ -13,8 +13,7 @@ import java.util.List;
 public class UserServiceImp implements UserService {
     @Autowired
     UserDao userDao;
-
-
+    
     public List<User> getUser() {
         // TODO Auto-generated method stub
         return userDao.getUser();

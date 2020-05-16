@@ -5,9 +5,13 @@ import com.example.admin_mvc.dto.ProductRequest;
 import com.example.admin_mvc.model.ProductModel;
 import com.example.admin_mvc.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
@@ -113,6 +117,35 @@ public class ProductAPIController {
             response.setCode("90");
             response.setMessage("System erorr : " + e.getMessage());
             response.setData(id);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/product/search",method = RequestMethod.GET)
+    public BaseResponse Product(@RequestParam(value = "name",required = false) String name,
+                                @RequestParam("page")int page,
+                                @RequestParam("perPage") int perPage){
+        BaseResponse response = new BaseResponse();
+        try{
+            Pageable pageable = PageRequest.of(page, perPage,
+                    Sort.by(Sort.Direction.DESC,"id"));
+            //PageRequest pageable = PageRequest.of(page,perPage);
+            List<ProductModel> lstProduct =
+                    productRepository.findByNameContaining(name,pageable);
+
+            if(!lstProduct.isEmpty()){
+                response.setCode("00");
+                response.setMessage("List product search by key : " + name);
+                response.setData(lstProduct);
+            }else{
+                response.setCode("99");
+                response.setMessage("Data not found");
+                response.setData(null);
+            }
+        }catch (Exception e){
+            response.setCode("90");
+            response.setMessage("System erorr : " + e.getMessage());
+            response.setData(null);
         }
         return response;
     }
