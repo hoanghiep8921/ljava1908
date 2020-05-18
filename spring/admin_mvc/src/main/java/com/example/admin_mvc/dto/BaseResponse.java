@@ -1,4 +1,4 @@
-package com.example.admin_mvc.model;
+package com.example.admin_mvc.dto;
 
 public class BaseResponse {
     private String code;

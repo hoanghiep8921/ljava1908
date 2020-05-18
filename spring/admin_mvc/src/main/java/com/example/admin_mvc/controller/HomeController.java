@@ -1,8 +1,7 @@
 package com.example.admin_mvc.controller;
 
-import com.example.admin_mvc.model.BaseResponse;
+import com.example.admin_mvc.dto.BaseResponse;
 import com.example.admin_mvc.model.Product;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

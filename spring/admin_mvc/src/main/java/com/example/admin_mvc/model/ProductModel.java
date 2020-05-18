@@ -1,15 +1,14 @@
 package com.example.admin_mvc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Table(name = "product")
 @Entity
 public class ProductModel {
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     @Column(name = "name")
     private String name;
