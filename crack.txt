@@ -1,0 +1,3 @@
+open Help/Edit custom VM..
+
+-javaagent:C:\Users\hoang\Downloads\IntelliJIDEAUltimate.2019.3.3.taiwebs.com\jetbrains-agent.jar
