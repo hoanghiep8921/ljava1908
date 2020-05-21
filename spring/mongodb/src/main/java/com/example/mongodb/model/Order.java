@@ -21,6 +21,16 @@ public class Order {
     private Date createdAt;
     @Field("address")
     private String address;
+    @Field("status")
+    private Integer status; //int;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public String getId() {
         return id;

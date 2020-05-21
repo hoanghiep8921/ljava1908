@@ -29,7 +29,7 @@
                 <h5 class="card-title"th:text="${product.getName()}"></h5>
                 <p class="card-text"th:text="${product.getPrice()}"></p>
                 <p class="card-text"th:text="${product.getNumber()}"></p>
-                <button class="btn btn-primary" onclick="addToCart(1)">Add to cart</button>
+                <button class="btn btn-primary" onclick="addToCartDB(1)">Add to cart</button>
             </div>
         </div>
     </div>
@@ -70,6 +70,28 @@
 
 <script>
     var listProductCart = [];
+    var cart = {
+        id:"",
+        buyer:"",
+        listProduct:[],
+        status:""
+    };
+    getProductInCart();
+    function getProductInCart(){
+        $.ajax({
+            url:"http://localhost:8088/order/products/hiep",
+            type:"GET",
+            success: function (response) {
+                console.log(response);
+                if(response.code == '00'){
+                    cart = response.data;
+                }
+            },
+            error: function (error) {
+                alert(error);
+            }
+        })
+    }
 
     function getCookie(cname) {
         var name = cname + "=";
@@ -93,18 +115,43 @@
         document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
-    function addToCart(id) {
-        //123,456,id
-        var listProduct = getCookie("productCart");
-        console.log("List Product before in cookie",listProduct);
-        if(listProduct){
-            listProduct += ","+id;
-        }else{
-            listProduct = id;
-        }
-        setCookie("productCart",listProduct);
+    function addToCartDB(product){
+        let updateCartRequest = {
+            name:"hiep",
+            lstProductCart:[{
+                id:1,
+                number:1,
+                type:1
+            }],
+        };
+        $.ajax({
+            url:"http://localhost:8088/order/update/"+cart.id,
+            type:"PUT",
+            data:JSON.stringify(updateCartRequest),
+            contentType: "application/json",
+            success: function (response) {
+                console.log(response);
+                if(response.code == '00'){
+                    cart = response.data;
+                }
+            },
+            error: function (error) {
+                alert(error);
+            }
+        })
     }
+    // function addToCart(id) {
+    //     //123,456,id
+    //     var listProduct = getCookie("productCart");
+    //     console.log("List Product before in cookie",listProduct);
+    //     if(listProduct){
+    //         listProduct += ","+id;
+    //     }else{
+    //         listProduct = id;
+    //     }
+    //     setCookie("productCart",listProduct);
+    // }
 </script>
 </body>
 </html>
-http://68e27b18.ngrok.io/product/list?page=0&pageSize=5
+<!--http://68e27b18.ngrok.io/product/list?page=0&pageSize=5-->
