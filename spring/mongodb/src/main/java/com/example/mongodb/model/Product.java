@@ -10,10 +10,20 @@ public class Product {
     private String id;
     @Field("name")
     private String name;
+    @Field("image")
+    private String image;
     @Field("price")
     private Double price;
     @Field("number")
     private Integer number;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getId() {
         return id;
