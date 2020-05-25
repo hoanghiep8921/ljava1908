@@ -1,17 +1,17 @@
-package com.example.mongodb.model;
+package com.example.demomvc.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+
+import java.util.List;
 
 @Document(collection = "user")
 public class User {
     @Id
     private String id;
-    @Field("name")
     private String name;
-    @Field("test")
-    private String test;
+    private String password;
+    private List<String> roles;
 
     public String getId() {
         return id;
@@ -29,11 +29,19 @@ public class User {
         this.name = name;
     }
 
-    public String getTest() {
-        return test;
+    public String getPassword() {
+        return password;
     }
 
-    public void setTest(String test) {
-        this.test = test;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

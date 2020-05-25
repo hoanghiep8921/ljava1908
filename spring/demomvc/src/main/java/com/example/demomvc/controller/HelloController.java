@@ -45,6 +45,10 @@ public class HelloController {
         lstGame.add(new Game("https://i.pinimg.com/236x/f8/15/bd/f815bdbe19afa7128cadc1e0ba41cf4e.jpg",10,1000000,2000000,"Test 12"));
     }
 
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
     @RequestMapping("/hello")
     public String hello(Model model,
                         @RequestParam("name") String name,
@@ -71,6 +75,10 @@ public class HelloController {
         GoodBye goodBye = new GoodBye();
         model.addAttribute("goodBye",goodBye.getGoodBye());
         return "bye";
+    }
+    @RequestMapping("/403")
+    public String notFo(){
+        return "403";
     }
 
     @RequestMapping("/home")
