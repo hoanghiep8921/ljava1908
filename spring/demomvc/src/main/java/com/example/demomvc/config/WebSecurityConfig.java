@@ -30,10 +30,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-
         http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
-        http.authorizeRequests().mvcMatchers("/home**").permitAll();
-        http.authorizeRequests().mvcMatchers("/bye").access("hasAnyAuthority('USER')");
+        http.authorizeRequests()
+                .mvcMatchers("/home**").permitAll();
+        http.authorizeRequests()
+                .mvcMatchers("/register").permitAll();
+        http.authorizeRequests()
+                .mvcMatchers("/bye")
+                .access("hasAnyAuthority('USER')");
         http.authorizeRequests().and().formLogin()
                 .loginPage("/login")
                 // Submit URL của trang login
@@ -43,7 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 // Cấu hình cho Logout Page.
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/login");
+                .and().logout().logoutUrl("/logout")
+                .logoutSuccessUrl("/login");
 
     }
 

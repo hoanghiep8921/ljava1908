@@ -23,6 +23,9 @@ public class UserDetailServicesImpl implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
+//    public void addData(String item){
+//        grantList.add(new SimpleGrantedAuthority(item));
+//    }
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         LOGGER.debug("Find User by Name: {}", userName);
@@ -32,7 +35,10 @@ public class UserDetailServicesImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Tài khoản :" + userName + " không tồn tại !");
         }
         List<String> roles = user.getRoles();
-        List<GrantedAuthority> grantList = new ArrayList<>();
+        List<SimpleGrantedAuthority> grantList = new ArrayList<>();
+//        for(String role : roles){
+//            grantList.add(new SimpleGrantedAuthority(item));
+//        }
         roles.forEach(item -> {
             grantList.add(new SimpleGrantedAuthority(item));
         });
