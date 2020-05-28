@@ -28,4 +28,10 @@ public class HomeController {
         model.addAttribute("lstProduct",lstProduct);
         return "index";
     }
+    @RequestMapping("/home")
+    public String home(Model model){
+        List<Product> lstProduct = productRepository.findAll();
+        model.addAttribute("lstProduct",lstProduct);
+        return "home";
+    }
 }

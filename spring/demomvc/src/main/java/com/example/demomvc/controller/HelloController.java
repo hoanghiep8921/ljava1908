@@ -1,18 +1,20 @@
 package com.example.demomvc.controller;
 
-import com.example.demomvc.model.Game;
-import com.example.demomvc.model.GoodBye;
-import com.example.demomvc.model.Hello;
-import com.example.demomvc.model.MenuItem;
+import com.example.demomvc.model.*;
+import com.example.demomvc.repository.UserRepository;
 import com.example.demomvc.utils.Constant;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -20,6 +22,10 @@ public class HelloController {
 
     private List<Game> lstGame = new ArrayList<>();
     private List<MenuItem> lstMenu = new ArrayList<>();
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @PostConstruct
     public void mockData(){
         //mock data
@@ -48,6 +54,22 @@ public class HelloController {
     @RequestMapping("/login")
     public String login(){
         return "login";
+    }
+    @RequestMapping("/register")
+    public String register(){
+        return "register";
+    }
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String addUser(@RequestParam("username")String userName,
+                        @RequestParam("password")String password,
+                        @RequestParam("name")String name){
+        User user = new User();
+        user.setId(userName);
+        user.setPassword(passwordEncoder.encode(password));
+        user.setName(name);
+        user.setRoles(Arrays.asList("ADMIN","USER","VIP"));
+        userRepository.save(user);
+        return "redirect:/login?regisSuccess=true";
     }
     @RequestMapping("/hello")
     public String hello(Model model,
