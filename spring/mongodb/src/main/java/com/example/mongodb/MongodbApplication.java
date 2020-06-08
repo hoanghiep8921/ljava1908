@@ -22,10 +22,10 @@ public class MongodbApplication implements CommandLineRunner {
     TokenServices tokenServices;
     @Override
     public void run(String... args) throws Exception {
-        String token = tokenServices.generateJWT("HAHAHA");
-        System.out.println(token);
-        String dataAfterParse = tokenServices.readJWT(token);
-        System.out.println(dataAfterParse);
+//        String token = tokenServices.generateJWT("HAHAHA");
+//        System.out.println(token);
+//        String dataAfterParse = tokenServices.readJWT(token);
+//        System.out.println(dataAfterParse);
 //        System.out.println("Go here");
 //        for(int i = 0;i < 10;i++){
 //            Product p = new Product();
