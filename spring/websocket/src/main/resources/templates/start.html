@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 </head>
 <body>
@@ -15,7 +14,7 @@
     connect();
 
     function connect() {
-        var socket = new SockJS("http://localhost:8080/notification");
+        var socket = new SockJS("http://localhost:8123/notification");
         ws = Stomp.over(socket);
         ws.connect({}, function(frame) {
             ws.subscribe("/topic/notification", function(message) {
