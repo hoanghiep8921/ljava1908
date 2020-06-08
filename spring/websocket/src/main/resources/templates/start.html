@@ -11,26 +11,25 @@
 
 <script>
     var stompClient = null;
-    connect();
-
     function connect() {
         var socket = new SockJS("http://localhost:8123/notification");
         ws = Stomp.over(socket);
         ws.connect({}, function(frame) {
             ws.subscribe("/topic/notification", function(message) {
                 console.log(message);
+                console.log(message.body)
             });
 
         }, function(error) {
             setTimeout(() => {
                 this.connect();
-        }, 5000);
+            }, 5000);
         });
     }
+    connect();
 
     function disconnect() {
         stompClient.disconnect();
-        setConnected(false);
         console.log("Disconnected");
     }
 
@@ -47,7 +46,7 @@
         stompClient.send("/chatApp/chat", {}, JSON.stringify({ 'user': user, 'message': message }));
         document.getElementById('message').value="";
     }
-
+``
     function chatOutput(jsonMsg) {
         var response = document.getElementById('chatResponse');
         var p = document.createElement('p');

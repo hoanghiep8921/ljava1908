@@ -16,8 +16,6 @@ import java.time.format.DateTimeFormatter;
 
 @Controller
 public class ChatAppController {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
     @Autowired
     private SimpMessageSendingOperations messagingTemplate;
     @RequestMapping("/start")
@@ -29,7 +27,8 @@ public class ChatAppController {
     @RequestMapping("/message")
     @ResponseBody
     public String chat() {
-        this.messagingTemplate.convertAndSend("/topic/notification","TEST");
+        this.messagingTemplate.convertAndSend("/topic/notification",
+                "TEST");
         return "OK";
     }
 
