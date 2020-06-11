@@ -1,2 +1,4 @@
 LEARN GIT
-Hello Anh HiệpGood Night
+Good Night
+Hello Anh Hiệp
+Hello Mọi Người
