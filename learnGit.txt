@@ -1,10 +1,11 @@
 LEARN GIT
 Good Night
 Hello Anh Hiệp
-<<<<<<< HEAD
-
 Trời nóng thực sự
-=======
 Vận
 Hello Mọi Người
->>>>>>> 5b43942046f08eafbef6eadb43f26d16c4138338
+Hehe
+Hello Mọi Người
+Vận
+Hello Mọi Người
+
