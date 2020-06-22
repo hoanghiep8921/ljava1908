@@ -2,22 +2,16 @@ package com.example.backendkyc;
 
 import com.example.backendkyc.model.*;
 import com.example.backendkyc.reposiroty.*;
-import com.example.backendkyc.service.FacServiceImpl;
-import com.example.backendkyc.service.RequestServiceImpl;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.orm.jpa.vendor.HibernateJpaSessionFactoryBean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManagerFactory;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
@@ -32,16 +26,9 @@ public class BackendkycApplication implements CommandLineRunner {
         SpringApplication.run(BackendkycApplication.class, args);
     }
 
-    @Autowired
-    private EntityManagerFactory entityManagerFactory;
-
-    @Autowired
-    FacServiceImpl facService;
     @Override
     public void run(String... args) throws Exception {
-        facService.searchFaceRequest(null,null,"CLIENTID123","", PageRequest.of(0,4));
-        facService.countSearchRequest(null,null,"CLIENTID123","");
-//        entityManagerFactory.createEntityManager().
+
 //        Function function = new Function();
 //        function.setDescription("Quyền chỉnh sửa tất cả");
 //        function.setFunctionCode("SYS_ABC");

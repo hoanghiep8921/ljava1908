@@ -27,19 +27,10 @@ ekyc:
 default:
   password: 12345a
 spring:
-  datasource:
-    url: jdbc:oracle:thin:@//10.22.7.30:1521/NCPTTEST
-    username: TRACE_EKYC
-    password: TRACE_EKYC
-    hikari:
-      connection-timeout: 60000
-      maximum-pool-size: 5
-    driver-class-name: oracle.jdbc.OracleDriver
   # Templates reloading during development
   thymeleaf:
     prefix: file:src/main/resources/templates/
     cache: false
-
   # Static resources reloading during development
   resources:
     static-locations: file:src/main/resources/static/

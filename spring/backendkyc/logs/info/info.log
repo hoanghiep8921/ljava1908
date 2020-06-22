@@ -1,1 +1,111 @@
 2020-06-05 08:41:15,886 [HikariPool-1 housekeeper] WARN  c.z.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h22m13s855ms697µs500ns).
+2020-06-22 20:54:14,470 [restartedMain] INFO  c.e.b.BackendkycApplication - Starting BackendkycApplication on DESKTOP-D76G4J0 with PID 30712 (C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc\target\classes started by hoang in C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc)
+2020-06-22 20:54:14,474 [restartedMain] INFO  c.e.b.BackendkycApplication - No active profile set, falling back to default profiles: default
+2020-06-22 20:54:14,525 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 20:54:14,526 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 20:54:15,984 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 20:54:15,985 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-06-22 20:54:16,104 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.backendkyc.reposiroty.RoleRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+2020-06-22 20:54:16,111 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.backendkyc.reposiroty.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+2020-06-22 20:54:16,113 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 106ms. Found 0 JPA repository interfaces.
+2020-06-22 20:54:16,171 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 20:54:16,172 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-06-22 20:54:16,242 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69ms. Found 2 MongoDB repository interfaces.
+2020-06-22 20:54:17,139 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8182 (http)
+2020-06-22 20:54:17,164 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8182"]
+2020-06-22 20:54:17,167 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+2020-06-22 20:54:17,168 [restartedMain] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-06-22 20:54:17,559 [restartedMain] INFO  o.a.c.c.C.[.[.[/bekyc] - Initializing Spring embedded WebApplicationContext
+2020-06-22 20:54:17,559 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3033 ms
+2020-06-22 20:54:17,622 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inMemoryDatabaseShutdownExecutor' defined in class path resource [org/springframework/boot/devtools/autoconfigure/DevToolsDataSourceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'inMemoryDatabaseShutdownExecutor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2020-06-22 20:54:17,626 [restartedMain] INFO  o.a.c.core.StandardService - Stopping service [Tomcat]
+2020-06-22 20:54:17,640 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-22 20:54:17,648 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2020-06-22 20:55:20,927 [restartedMain] INFO  c.e.b.BackendkycApplication - Starting BackendkycApplication on DESKTOP-D76G4J0 with PID 3732 (C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc\target\classes started by hoang in C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc)
+2020-06-22 20:55:20,932 [restartedMain] INFO  c.e.b.BackendkycApplication - No active profile set, falling back to default profiles: default
+2020-06-22 20:55:21,005 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 20:55:21,005 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 20:55:22,255 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 20:55:22,257 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-06-22 20:55:22,374 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.backendkyc.reposiroty.RoleRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+2020-06-22 20:55:22,384 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.example.backendkyc.reposiroty.UserRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+2020-06-22 20:55:22,387 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 114ms. Found 0 JPA repository interfaces.
+2020-06-22 20:55:22,445 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-06-22 20:55:22,445 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-06-22 20:55:22,495 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50ms. Found 2 MongoDB repository interfaces.
+2020-06-22 20:55:23,870 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8182 (http)
+2020-06-22 20:55:23,898 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8182"]
+2020-06-22 20:55:23,902 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+2020-06-22 20:55:23,903 [restartedMain] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-06-22 20:55:24,204 [restartedMain] INFO  o.a.c.c.C.[.[.[/bekyc] - Initializing Spring embedded WebApplicationContext
+2020-06-22 20:55:24,205 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3199 ms
+2020-06-22 20:55:24,298 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'inMemoryDatabaseShutdownExecutor' defined in class path resource [org/springframework/boot/devtools/autoconfigure/DevToolsDataSourceAutoConfiguration.class]: Unsatisfied dependency expressed through method 'inMemoryDatabaseShutdownExecutor' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2020-06-22 20:55:24,302 [restartedMain] INFO  o.a.c.core.StandardService - Stopping service [Tomcat]
+2020-06-22 20:55:24,318 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-06-22 20:55:24,326 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2020-06-22 20:57:12,840 [restartedMain] INFO  c.e.b.BackendkycApplication - Starting BackendkycApplication on DESKTOP-D76G4J0 with PID 12352 (C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc\target\classes started by hoang in C:\Users\hoang\Desktop\Ljava1908\ljava1908\spring\backendkyc)
+2020-06-22 20:57:12,843 [restartedMain] INFO  c.e.b.BackendkycApplication - No active profile set, falling back to default profiles: default
+2020-06-22 20:57:12,915 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-06-22 20:57:12,916 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-06-22 20:57:13,772 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-06-22 20:57:13,861 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 83ms. Found 2 MongoDB repository interfaces.
+2020-06-22 20:57:14,769 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8182 (http)
+2020-06-22 20:57:14,781 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8182"]
+2020-06-22 20:57:14,783 [restartedMain] INFO  o.a.c.core.StandardService - Starting service [Tomcat]
+2020-06-22 20:57:14,784 [restartedMain] INFO  o.a.c.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.34]
+2020-06-22 20:57:14,972 [restartedMain] INFO  o.a.c.c.C.[.[.[/bekyc] - Initializing Spring embedded WebApplicationContext
+2020-06-22 20:57:14,972 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2056 ms
+2020-06-22 20:57:15,869 [restartedMain] INFO  org.mongodb.driver.cluster - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+2020-06-22 20:57:15,869 [restartedMain] INFO  org.mongodb.driver.cluster - Adding discovered server localhost:27017 to client view of cluster
+2020-06-22 20:57:15,940 [cluster-ClusterId{value='5ef0b8bb05c7784c39a65380', description='null'}-localhost:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:1, serverValue:326}] to localhost:27017
+2020-06-22 20:57:15,946 [cluster-ClusterId{value='5ef0b8bb05c7784c39a65380', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[4, 2, 6]}, minWireVersion=0, maxWireVersion=8, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=4248200}
+2020-06-22 20:57:15,947 [cluster-ClusterId{value='5ef0b8bb05c7784c39a65380', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Discovered cluster type of STANDALONE
+2020-06-22 20:57:16,130 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2020-06-22 20:57:16,959 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-06-22 20:57:17,288 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskScheduler - Initializing ExecutorService 'taskScheduler'
+2020-06-22 20:57:17,718 [restartedMain] INFO  o.a.c.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8182"]
+2020-06-22 20:57:17,739 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8182 (http) with context path '/bekyc'
+2020-06-22 20:57:17,742 [restartedMain] INFO  c.e.b.BackendkycApplication - Started BackendkycApplication in 5.62 seconds (JVM running for 6.58)
+2020-06-22 20:57:45,285 [http-nio-8182-exec-6] INFO  o.a.c.c.C.[.[.[/bekyc] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-06-22 20:57:45,285 [http-nio-8182-exec-6] INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-06-22 20:57:45,297 [http-nio-8182-exec-6] INFO  o.s.w.s.DispatcherServlet - Completed initialization in 11 ms

@@ -2,51 +2,49 @@ package com.example.backendkyc.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Entity
-@Table(name = "SA_USER")
+@Document("sa_user")
 public class User  implements Serializable {
 
     @Id
-    @Column(name = "userId")
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer userID;
+    private String userID;
 
-    @Column(name = "user_name", nullable = false)
+    @Field(name = "user_name")
     private String userName;
 
-    @Column(name = "full_name")
+    @Field(name = "full_name")
     private String fullName;
 
-    @Column(name = "email")
+    @Field(name = "email")
     private String email;
 
-    @Column(name = "password")
+    @Field(name = "password")
     private String password;
 
-    @Column(name = "fail_login_count")
+    @Field(name = "fail_login_count")
     private Integer failLoginCount;
 
-    @Column(name = "roleID")
-    private Integer roleID;
+    @Field(name = "roleID")
+    private String roleID;
 
-    @Column(name = "status")
+    @Field(name = "status")
     private Integer status;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm:ss", timezone = "Asia/Saigon")
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "last_login")
+    @Field(name = "last_login")
     private Date lastLogin;
 
-    public Integer getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(Integer userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
@@ -90,11 +88,11 @@ public class User  implements Serializable {
         this.failLoginCount = failLoginCount;
     }
 
-    public Integer getRoleID() {
+    public String getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(Integer roleID) {
+    public void setRoleID(String roleID) {
         this.roleID = roleID;
     }
 

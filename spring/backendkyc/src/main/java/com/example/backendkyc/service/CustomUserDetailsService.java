@@ -19,7 +19,6 @@ import java.util.List;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-
     final static Logger LOGGER = LoggerFactory.getLogger(CustomUserDetailsService.class);
     private static final Gson gson = new Gson();
 
@@ -29,7 +28,6 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
         LOGGER.debug("Find User by Name: {}", userName);
@@ -38,10 +36,10 @@ public class CustomUserDetailsService implements UserDetailsService {
             LOGGER.debug("{} not found!", userName);
             throw new UsernameNotFoundException("Tài khoản :" + userName + " không tồn tại !");
         }
-        Integer roleID = user.getRoleID();
+        String roleID = user.getRoleID();
         List<GrantedAuthority> grantList = new ArrayList<>();
         if (roleID != null) {
-            roleService.findByID(roleID).getFunctions().stream().map((function) -> new SimpleGrantedAuthority(function.getFunctionCode())).forEachOrdered((authority) -> {
+            roleService.findByID(roleID).getFunctions().stream().map((function) -> new SimpleGrantedAuthority(function.getId())).forEachOrdered((authority) -> {
                 grantList.add(authority);
             });
             if(roleID.equals(Constant.ROLE_SUPER_ID)){

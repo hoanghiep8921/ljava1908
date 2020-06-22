@@ -2,17 +2,16 @@ package com.example.backendkyc.service;
 
 import com.example.backendkyc.model.User;
 import com.example.backendkyc.reposiroty.UserRepository;
+import com.example.backendkyc.utils.Utils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.util.*;
 
 @Service
@@ -23,13 +22,9 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private EntityManager em;
+    MongoTemplate mongoTemplate;
 
     public List<User> getAllUser() {
-        return userRepository.findAll();
-    }
-
-    public List<User> searchListAll(User appUser) {
         return userRepository.findAll();
     }
 
@@ -47,23 +42,12 @@ public class UserService {
     }
 
     public List<User> findUser(User user, String fromDate, String toDate) throws Exception {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<User> cq = cb.createQuery(User.class);
-
-        Root<User> users = cq.from(User.class);
-        List<Predicate> predicates = new ArrayList<>();
-
-        if (user.getUserName() != null && !user.getUserName().isEmpty()) {
-            predicates.add(cb.like(users.get("username"), "%" + user.getUserName() + "%"));
+        Query query = new Query();
+        if(!Utils.checkNullOrEmpty(fromDate)){
+            query.addCriteria(Criteria.where("last_login").lte(fromDate));
         }
-        if (user.getEmail() != null && !user.getEmail().isEmpty()) {
-            predicates.add(cb.like(users.get("email"), "%" + user.getEmail() + "%"));
-        }
-        if (user.getFullName() != null && !user.getFullName().isEmpty()) {
-            predicates.add(cb.like(users.get("fullName"), "%" + user.getFullName() + "%"));
-        }
-        cq.where(predicates.toArray(new Predicate[0]));
-        return em.createQuery(cq).getResultList();
+        List<User> lstUser = mongoTemplate.find(query, User.class);
+        return lstUser;
     }
 //
 }

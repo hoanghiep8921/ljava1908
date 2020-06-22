@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33ad68a1-cecf-452e-b52a-3cb509d1402a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../spring/testjava/src/main/java/com/example/testjava/Bikini.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spring/testjava/src/main/java/com/example/testjava/Clothes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spring/testjava/src/main/java/com/example/testjava/Girl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spring/testjava/src/main/java/com/example/testjava/Outfit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BookManageSystem/com/company/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManageSystem/com/company/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BookManageSystem/com/company/MyBook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BookManageSystem/com/company/MyBook.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Category.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MyBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyBook.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,29 +21,23 @@
   </component>
   <component name="ProjectId" id="1Q3mc9V7LogLfZRX135SFdAqJcN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../spring/testjava" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -87,24 +71,24 @@
       <workItem from="1569739398931" duration="654000" />
       <workItem from="1575892695516" duration="1513000" />
       <workItem from="1576933360642" duration="4869000" />
+      <workItem from="1592567942816" duration="2356000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

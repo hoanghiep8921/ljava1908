@@ -177,7 +177,7 @@ public class UserController {
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ModelAndView doAddUser(@RequestParam("userName") String userName,
                                   @RequestParam("fullName") String fullName,
-                                  @RequestParam("role") Integer role,
+                                  @RequestParam("role") String role,
                                   @RequestParam("email") String email,
                                   @RequestParam("password") String password,
                                   Model model, HttpServletRequest request, Principal principal) {
@@ -230,7 +230,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-    public ModelAndView editUserForm(@PathVariable Integer id, HttpServletRequest request, Principal principal) {
+    public ModelAndView editUserForm(@PathVariable String id, HttpServletRequest request, Principal principal) {
         String tag = buildLogTag(request, principal, "Edit User");
         LOGGER.debug(LOG_FORMAT, tag, "Edit User View. Username: " + id);
         User user = userRepository.findById(id).get();
@@ -242,10 +242,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView doUpdateUser(@PathVariable Integer id,
+    public ModelAndView doUpdateUser(@PathVariable String id,
                                      @RequestParam("fullName") String fullName,
                                      @RequestParam("email") String email,
-                                     @RequestParam("role") Integer role,
+                                     @RequestParam("role") String role,
                                      Model model, HttpServletRequest request, Principal principal) {
         String tag = buildLogTag(request, principal, "Edit User");
         LOGGER.debug(LOG_FORMAT + " UserID: {}, fullName: {},email:{}, role: {}", tag, "Edit User.", id, fullName,email, role);
@@ -280,7 +280,7 @@ public class UserController {
 
     @RequestMapping("/update_user")
     @ResponseBody
-    public long updateStatusAndPassword(@RequestParam("id") Integer id,
+    public long updateStatusAndPassword(@RequestParam("id") String id,
                                         @RequestParam("status") Integer status, HttpServletRequest request, Model model, Principal principal) throws ParseException {
         String tag = buildLogTag(request, principal, "Update Status User");
         LOGGER.debug(LOG_FORMAT, tag, "UpdateUser:" + id + ". status: " + status);

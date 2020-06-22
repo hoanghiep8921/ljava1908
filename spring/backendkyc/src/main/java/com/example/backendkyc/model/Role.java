@@ -1,45 +1,36 @@
 package com.example.backendkyc.model;
 
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
-@Table(name = "SA_ROLE")
+@Document(collection = "sa_role")
 public class Role implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    @Column(name = "ID")
-    private Integer roleID;
+    private String roleID;
 
-    @Column(name = "ROLE_CODE")
+    @Field(name = "ROLE_CODE")
     private String roleCode;
 
-    @Column(name = "DESCRIPTION")
+    @Field(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "STATUS")
+    @Field(name = "STATUS")
     private Integer status;
 
-    @ManyToMany(fetch = FetchType.EAGER,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    @JoinTable(name = "SA_ROLE_FUNCTION",
-            joinColumns = {
-                    @JoinColumn(name = "ROLE_ID")},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "FUNCTION_ID")})
+    @Field(name = "FUNCTIONS")
     private Set<Function> functions = new HashSet<>();
 
-    public Integer getRoleID() {
+    public String getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(Integer roleID) {
+    public void setRoleID(String roleID) {
         this.roleID = roleID;
     }
 
