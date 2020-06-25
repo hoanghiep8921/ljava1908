@@ -12,10 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SpringBootApplication
@@ -26,8 +23,36 @@ public class BackendkycApplication implements CommandLineRunner {
         SpringApplication.run(BackendkycApplication.class, args);
     }
 
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    RoleRepository roleRepository;
     @Override
     public void run(String... args) throws Exception {
+
+//        User user = new User();
+//        user.setUserName("hiepdh");
+//        user.setPassword("$2y$12$.1DwtUliYh8JhWGqt75Sm.DrAa7zcvhfCanlxGJgJVeLB6jRxyztq");
+//        user.setEmail("hoanghiep8921@gmail.com");
+//        user.setRoleID("USER");
+//        user.setStatus(1);
+//
+//        Role role = new Role();
+//        role.setRoleID("USER");
+//        role.setDescription("Khách hàng bình thường");
+//        role.setRoleCode("USER_01");
+//        Function function = new Function();
+//        function.setId("VIEW");
+//        function.setName("Xem chi tiết");
+//        Function function2 = new Function();
+//        function2.setId("EDIT");
+//        function2.setName("Sửa chi tiết");
+//        Set<Function> setFunc = new HashSet<>();
+//        setFunc.add(function);
+//        setFunc.add(function2);
+//        role.setFunctions(setFunc);
+//        roleRepository.save(role);
+//        userRepository.save(user);
 
 //        Function function = new Function();
 //        function.setDescription("Quyền chỉnh sửa tất cả");

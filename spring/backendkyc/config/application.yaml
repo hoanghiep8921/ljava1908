@@ -23,6 +23,7 @@ ekyc:
         access: permitAll
       - url: /*,/**
         access: isAuthenticated()
+    ignoring: 123
 
 default:
   password: 12345a
