@@ -47,7 +47,7 @@ public class RoleController {
     @Autowired
     FunctionRepository functionRepository;
 
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('EDIT')") // @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping("/list")
     public ModelAndView list(HttpServletRequest request,
                              Principal principal) {
